@@ -1,0 +1,5 @@
+define [
+  "handlebars"
+], (Handlebars) ->
+
+  Handlebars

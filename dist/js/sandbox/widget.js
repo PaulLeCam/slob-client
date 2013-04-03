@@ -1,0 +1,1 @@
+(function(){define(["core/util","core/dom","core/events","core/promise","core/command","ext/mediator","ext/framework"],function(e,t,n,r,i,s,o){return e.extend({},r,s,o,{util:e},{dom:t},{events:n},{request:i.request})})}).call(this);

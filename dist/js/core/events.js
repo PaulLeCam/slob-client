@@ -1,0 +1,1 @@
+(function(){define(["backbone"],function(e){var t;return t=e.Events,t.emit=t.trigger,t})}).call(this);

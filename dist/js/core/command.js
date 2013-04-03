@@ -1,0 +1,1 @@
+(function(){var e=[].slice;define(["./promise"],function(t){var n;return n={},{register:function(e,t){return n[e]=t},request:function(){var r,i,s,o;return o=arguments[0],r=2<=arguments.length?e.call(arguments,1):[],s=t.deferred(),(i=n[o])?(r.unshift(s),i.apply(null,r)):s.reject(new Error("Undefined callback "+o)),s.promise()}}})}).call(this);
