@@ -1,1 +1,0 @@
-(function(){define(["backbone"],function(e){return{Model:e.Model,View:e.View,Collection:e.Collection}})}).call(this);

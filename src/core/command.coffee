@@ -13,6 +13,7 @@ define [
     if cb = callbacks[name]
       args.unshift dfd
       cb.apply null, args
-    else dfd.reject new Error "Undefined callback #{ name }"
+    else
+      dfd.reject new Error "Undefined callback"
 
     dfd.promise()

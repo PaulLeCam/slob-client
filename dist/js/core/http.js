@@ -1,1 +1,0 @@
-(function(){define(["jquery"],function(e){return{ajax:e.ajax,get:e.get,getJSON:e.getJSON,post:e.post,param:e.param}})}).call(this);

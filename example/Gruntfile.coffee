@@ -26,7 +26,7 @@ module.exports = (grunt) ->
     copy:
       components:
         files: [
-          {src: "<%= dir.components %>/requirejs/require.js", dest: "<%= dir.build.js %>/lib/requirejs.js"}
+          {src: "<%= dir.components %>/requirejs/require.js", dest: "<%= dir.build.js %>/lib/require.js"}
           {src: "<%= dir.components %>/json3/lib/json3.js", dest: "<%= dir.build.js %>/lib/json3.js"}
           {src: "<%= dir.components %>/jquery/jquery.js", dest: "<%= dir.build.js %>/lib/jquery.js"}
           {src: "<%= dir.components %>/backbone/backbone.js", dest: "<%= dir.build.js %>/lib/backbone.js"}

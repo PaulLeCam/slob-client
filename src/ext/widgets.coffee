@@ -1,16 +1,40 @@
 define [
   "core/util"
   "core/dom"
+  "core/promise"
   "core/store"
-], (util, dom, Store) ->
+  "core/dev"
+], (util, dom, promise, Store, dev) ->
 
   typesStore = new Store
   elsStore = new Store
 
+  initialize: (type, options) ->
+    dfd = promise.deferred()
+    options = {el: options} unless util.isObject options
+
+    require ["widgets/#{ type }"], (Widget) ->
+      w = new Widget options
+
+      elsStore.set options.el, new Store unless elsStore.has options.el
+      elTypes = elsStore.get options.el
+      elTypes.set type, w # add type to element's store
+
+      typesStore.set type, new Store unless typesStore.has type
+      typeEls = typesStore.get type
+      typeEls.set options.el, w # add element to type's store
+
+      dfd.resolve w
+    , (err) ->
+      dev.warn "Error trying to initialize widget `#{ type }`", err
+      dfd.reject err
+
+    dfd.promise()
+
   start: (type, options) ->
     # wrong parameters
     if not type? or not options? or type is "*" and options is "*"
-      console.warn "Wrong parameters to start widget", type, options
+      dev.warn "Wrong parameters to start widget", type, options
       return @
 
     if options is "*"
@@ -24,31 +48,15 @@ define [
         if type is "*" # re-start all widgets for element
           w.start() for w in elTypes.values()
         else if (w = elTypes.get type) then w.start() # re-start single widget
-        else @_new type, options # start new widget
+        else @initialize(type, options).done (w) -> w.start() # start new widget
 
-      else @_new type, options # start new widget
+      else @initialize(type, options).done (w) -> w.start() # start new widget
     @
-
-  _new: (type, options) ->
-    require ["widgets/#{ type }"], (Widget) ->
-      w = new Widget options
-
-      elsStore.set options.el, new Store unless elsStore.has options.el
-      elTypes = elsStore.get options.el
-      elTypes.set type, w # add type to element's store
-
-      typesStore.set type, new Store unless typesStore.has type
-      typeEls = typesStore.get type
-      typeEls.set options.el, w # add element to type's store
-
-      w.start() # start widget
-    , (err) ->
-      console.warn "Error trying to start widget `#{ type }`", err
 
   stop: (type, el) ->
     # wrong parameters
     if not type? or not el? or type is "*" and el is "*"
-      console.warn "Wrong parameters to stop widget", type, el
+      dev.warn "Wrong parameters to stop widget", type, el
       return @
 
     if el is "*"
@@ -65,7 +73,7 @@ define [
   remove: (el) ->
     # wrong parameters
     if not el? or el is "*"
-      console.warn "Wrong parameters to remove widget", el
+      dev.warn "Wrong parameters to remove widget", el
       return @
 
     if elTypes = elsStore.get el

@@ -6,20 +6,13 @@
     "type": "git",
     "url": "https://github.com/PaulLeCam/slob-client.git"
   },
+  "scripts": {
+    "start": "coffee -o dist/ -cw src/"
+  },
   "author": "Paul Le Cam <paul@ulem.net>",
   "license": "BSD",
   "readmeFilename": "README.md",
   "devDependencies": {
-    "should": "~1.2.2",
-    "supertest": "~0.5.1",
-    "express": "~3.1.1",
-    "grunt-contrib-clean": "~0.4.0",
-    "grunt-contrib-copy": "~0.4.1",
-    "grunt-contrib-requirejs": "~0.4.0",
-    "grunt-contrib-coffee": "~0.6.4",
-    "grunt-contrib-handlebars": "~0.5.8",
-    "grunt-contrib-cssmin": "~0.5.0",
-    "grunt-contrib-watch": "~0.3.1",
-    "grunt": "~0.4.1"
+    "coffee-script": "~1.6.2"
   }
 }

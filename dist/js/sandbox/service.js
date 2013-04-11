@@ -1,1 +1,0 @@
-(function(){define(["core/util","core/events","core/http","core/promise","core/command","ext/mediator","ext/framework"],function(e,t,n,r,i,s,o){return e.extend({},r,i,s,{util:e},{events:t},{http:n},{routing:o.routing,mvc:{Model:o.mvc.Model,Collection:o.mvc.Model}})})}).call(this);

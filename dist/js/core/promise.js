@@ -1,1 +1,0 @@
-(function(){define(["jquery"],function(e){return{deferred:e.Deferred,when:e.when}})}).call(this);
