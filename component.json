@@ -1,6 +1,6 @@
 {
   "name": "slob",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "dependencies": {
     "jquery": "v1.9.1",
     "backbone": "~1.0.0",

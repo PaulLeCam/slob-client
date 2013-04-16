@@ -83,12 +83,11 @@
           self.set(params, {
             silent: true
           });
-        } else {
-          self = Model.__super__.constructor.call(this, params);
-          key = (_ref1 = this.id) != null ? _ref1 : this.cid;
-          this.store.set(key, self);
+          return self;
         }
-        self;
+        Model.__super__.constructor.call(this, params);
+        key = (_ref1 = this.id) != null ? _ref1 : this.cid;
+        this.store.set(key, this);
       }
 
       Model.prototype.emit = function() {

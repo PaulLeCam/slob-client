@@ -64,11 +64,11 @@ define [
     constructor: (params = {}) ->
       if (id = params.id or params.cid) and self = @store.get id
         self.set params, silent: yes
-      else
-        self = super params
-        key = @id ? @cid
-        @store.set key, self
-      self
+        return self
+
+      super params
+      key = @id ? @cid
+      @store.set key, @
 
     emit: ->
       @trigger.apply @, arguments
