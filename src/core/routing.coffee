@@ -1,3 +1,6 @@
+# # routing
+# ### Aliases to Backbone routing functions.
+
 define [
   "backbone"
 ], (Backbone) ->

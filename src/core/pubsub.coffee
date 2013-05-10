@@ -1,3 +1,6 @@
+# # pubsub
+# ## Implementation of Backbone Events for application pub/sub.
+
 define [
   "./util"
   "./events"

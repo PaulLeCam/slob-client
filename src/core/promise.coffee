@@ -1,3 +1,6 @@
+# # promise
+# ### Aliases to jQuery deferred functions.
+
 define [
   "jquery"
 ], ($) ->

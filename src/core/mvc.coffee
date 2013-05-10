@@ -1,3 +1,6 @@
+# # mvc
+# ### Aliases to Backbone Model, View and Collection.
+
 define [
   "backbone"
 ], (Backbone) ->

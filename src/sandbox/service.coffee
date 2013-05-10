@@ -1,3 +1,7 @@
+# # service
+# The service sandbox is appropriate for modules that provide general-purpose functionalities,
+# communicate with the server or other APIs, or perform background tasks.
+
 define [
   "core/util"
   "core/events"

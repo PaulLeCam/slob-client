@@ -1,3 +1,6 @@
+# # http
+# ### Aliases to jQuery functions related to HTTP requests.
+
 define [
   "jquery"
 ], ($) ->

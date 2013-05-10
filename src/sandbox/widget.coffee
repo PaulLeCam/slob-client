@@ -1,3 +1,6 @@
+# # widget
+# The widget sandbox is appropriate for user-facing modules such as pages and widgets.
+
 define [
   "core/util"
   "core/dom"

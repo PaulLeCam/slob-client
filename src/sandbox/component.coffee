@@ -1,3 +1,7 @@
+# # component
+# A component is a general-purpose module.
+# Basically, this sandbox should be used by modules that are too restricted by the `widget` and `service` sandboxes.
+
 define [
   "core/util"
   "core/events"
