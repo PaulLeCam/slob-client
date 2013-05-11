@@ -3,6 +3,11 @@ Slob
 
 Slob is a set of simple RequireJS modules made to abstract librairies such as Lo-Dash, jQuery, Backbone, Handlebars... and assemble them into a framework and other components to ensure modularity of application code.
 
+Installation
+------------
+
+Using Bower: `bower install slob`
+
 Previous work
 -------------
 
