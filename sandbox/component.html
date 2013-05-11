@@ -1,0 +1,20 @@
+<!DOCTYPE html><html lang="en"><head><title>sandbox/component</title></head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"><meta name="groc-relative-root" content="../"><meta name="groc-document-path" content="sandbox/component"><meta name="groc-project-path" content="src/sandbox/component.coffee"><meta name="groc-github-url" content="https://github.com/PaulLeCam/slob-client"><link rel="stylesheet" type="text/css" media="all" href="../assets/style.css"><script type="text/javascript" src="../assets/behavior.js"></script><body><div id="meta"><div class="file-path"><a href="https://github.com/PaulLeCam/slob-client/blob/master/src/sandbox/component.coffee">src/sandbox/component.coffee</a></div></div><div id="document"><div class="segment"><div class="comments"><div class="wrapper"><h1 id="component">component</h1>
+
+<p>A component is a general-purpose module.
+Basically, this sandbox should be used by modules that are too restricted by the <code>widget</code> and <code>service</code> sandboxes.</p></div></div><div class="code"><div class="wrapper"><span class="nx">define</span> <span class="p">[</span>
+  <span class="s">&quot;core/util&quot;</span>
+  <span class="s">&quot;core/events&quot;</span>
+  <span class="s">&quot;core/http&quot;</span>
+  <span class="s">&quot;core/promise&quot;</span>
+  <span class="s">&quot;core/command&quot;</span>
+  <span class="s">&quot;core/store&quot;</span>
+  <span class="s">&quot;core/dev&quot;</span>
+  <span class="s">&quot;ext/framework&quot;</span>
+<span class="p">],</span> <span class="nf">(util, events, http, promise, command, Store, dev, framework) -&gt;</span>
+
+  <span class="nx">util</span><span class="p">.</span><span class="nx">extend</span> <span class="p">{},</span> <span class="nx">promise</span><span class="p">,</span> <span class="nx">command</span><span class="p">,</span> <span class="nx">framework</span><span class="p">,</span>
+    <span class="p">{</span><span class="nx">util</span><span class="p">},</span>
+    <span class="p">{</span><span class="nx">events</span><span class="p">},</span>
+    <span class="p">{</span><span class="nx">http</span><span class="p">},</span>
+    <span class="p">{</span><span class="nx">Store</span><span class="p">},</span>
+    <span class="p">{</span><span class="nx">dev</span><span class="p">}</span></div></div></div></div></body></html>

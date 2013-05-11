@@ -1,0 +1,33 @@
+<!DOCTYPE html><html lang="en"><head><title>index</title></head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"><meta name="groc-relative-root" content=""><meta name="groc-document-path" content="index"><meta name="groc-project-path" content="README.md"><meta name="groc-github-url" content="https://github.com/PaulLeCam/slob-client"><link rel="stylesheet" type="text/css" media="all" href="assets/style.css"><script type="text/javascript" src="assets/behavior.js"></script><body><div id="meta"><div class="file-path"><a href="https://github.com/PaulLeCam/slob-client/blob/master/README.md">README.md</a></div></div><div id="document"><div class="segment"><div class="comments"><div class="wrapper"><h1 id="slob">Slob</h1>
+
+<p>Slob is a set of simple RequireJS modules made to abstract librairies such as LoDash, jQuery, Backbone, Handlebars... and assemble them into a framework and other components to ensure modularity of application code.</p>
+
+<h2 id="previous-work">Previous work</h2>
+
+<p>Slob is based on best-practices articles and presentations, most notably:</p>
+
+<ul>
+<li><a href="http://www.slideshare.net/nzakas/scalable-javascript-application-architecture">Scalable JavaScript Application Architecture</a> by Nicholas Zakas</li>
+<li><a href="https://speakerdeck.com/addyosmani/large-scale-javascript-application-architecture">Large-scale JavaScript Application Architecture</a> by Addy Osmani</li>
+<li><a href="http://addyosmani.com/resources/essentialjsdesignpatterns/book/">Learning JavaScript Design Patterns</a> by Addy Osmani</li>
+<li><a href="http://backstage.soundcloud.com/2012/06/building-the-next-soundcloud/">Building The Next SoundCloud</a> by Nick Fisher</li>
+</ul>
+
+<h2 id="work-in-progress">Work in progress</h2>
+
+<p>This code is still in very early development, it requires lots of testing and is not appropriate for production applications.
+Future developments will focus on adding tests and examples.</p>
+
+<h2 id="architecture">Architecture</h2>
+
+<p>Slob architecture is made of 3 parts, defining 3 layers of abstraction:</p>
+
+<ul>
+<li>The <em>core</em> is made to abstract librairies and eventually split of assemble them into different functionalities. It also offers basic implementations of different design patterns and general-purpose utilities.</li>
+<li>The <em>extension</em> purpose is to augment the core functionalities and provide new ones to match the needs of the application, assembled in a simple framework and a mediator.</li>
+<li>The <em>sandboxes</em> purpose is to provide a limited API of the core and framework functionalities to the actual application modules depending on their role, such as services (no access to the DOM) and widgets (user-facing functionalities).</li>
+</ul>
+
+<h2 id="license">License</h2>
+
+<p>MIT - See LICENSE file</p></div></div></div></div></body></html>
