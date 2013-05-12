@@ -738,53 +738,42 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                   "type": "heading",
                   "data": {
                     "level": 2,
-                    "title": "Template extension",
-                    "slug": "template-extension"
+                    "title": "Template",
+                    "slug": "template"
                   },
                   "depth": 2
                 }, {
                   "type": "heading",
                   "data": {
                     "level": 2,
-                    "title": "Routing extension",
-                    "slug": "routing-extension"
+                    "title": "Router",
+                    "slug": "router"
                   },
                   "depth": 2
                 }, {
                   "type": "heading",
                   "data": {
                     "level": 2,
-                    "title": "MVC extension",
-                    "slug": "mvc-extension"
+                    "title": "Model",
+                    "slug": "model"
                   },
-                  "depth": 2,
-                  "children": [
-                    {
-                      "type": "heading",
-                      "data": {
-                        "level": 3,
-                        "title": "Model",
-                        "slug": "model"
-                      },
-                      "depth": 3
-                    }, {
-                      "type": "heading",
-                      "data": {
-                        "level": 3,
-                        "title": "Collection",
-                        "slug": "collection"
-                      },
-                      "depth": 3
-                    }, {
-                      "type": "heading",
-                      "data": {
-                        "level": 3,
-                        "title": "View",
-                        "slug": "view"
-                      },
-                      "depth": 3
-                    }
-                  ]
+                  "depth": 2
+                }, {
+                  "type": "heading",
+                  "data": {
+                    "level": 2,
+                    "title": "Collection",
+                    "slug": "collection"
+                  },
+                  "depth": 2
+                }, {
+                  "type": "heading",
+                  "data": {
+                    "level": 2,
+                    "title": "View",
+                    "slug": "view"
+                  },
+                  "depth": 2
                 }, {
                   "type": "heading",
                   "data": {
@@ -812,53 +801,42 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "type": "heading",
               "data": {
                 "level": 2,
-                "title": "Template extension",
-                "slug": "template-extension"
+                "title": "Template",
+                "slug": "template"
               },
               "depth": 2
             }, {
               "type": "heading",
               "data": {
                 "level": 2,
-                "title": "Routing extension",
-                "slug": "routing-extension"
+                "title": "Router",
+                "slug": "router"
               },
               "depth": 2
             }, {
               "type": "heading",
               "data": {
                 "level": 2,
-                "title": "MVC extension",
-                "slug": "mvc-extension"
+                "title": "Model",
+                "slug": "model"
               },
-              "depth": 2,
-              "children": [
-                {
-                  "type": "heading",
-                  "data": {
-                    "level": 3,
-                    "title": "Model",
-                    "slug": "model"
-                  },
-                  "depth": 3
-                }, {
-                  "type": "heading",
-                  "data": {
-                    "level": 3,
-                    "title": "Collection",
-                    "slug": "collection"
-                  },
-                  "depth": 3
-                }, {
-                  "type": "heading",
-                  "data": {
-                    "level": 3,
-                    "title": "View",
-                    "slug": "view"
-                  },
-                  "depth": 3
-                }
-              ]
+              "depth": 2
+            }, {
+              "type": "heading",
+              "data": {
+                "level": 2,
+                "title": "Collection",
+                "slug": "collection"
+              },
+              "depth": 2
+            }, {
+              "type": "heading",
+              "data": {
+                "level": 2,
+                "title": "View",
+                "slug": "view"
+              },
+              "depth": 2
             }, {
               "type": "heading",
               "data": {
