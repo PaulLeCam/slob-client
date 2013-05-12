@@ -205,12 +205,33 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                 "slug": "dev",
                 "isFileHeader": true
               },
-              "depth": 1
+              "depth": 1,
+              "children": [
+                {
+                  "type": "heading",
+                  "data": {
+                    "level": 3,
+                    "title": "Wrapper for the console to ensure logs are only displayed when enabled.",
+                    "slug": "wrapper-for-the-console-to-ensure-logs-are-only-displayed-when-enabled"
+                  },
+                  "depth": 3
+                }
+              ]
             },
             "title": "dev"
           },
           "depth": 2,
-          "outline": []
+          "outline": [
+            {
+              "type": "heading",
+              "data": {
+                "level": 3,
+                "title": "Wrapper for the console to ensure logs are only displayed when enabled.",
+                "slug": "wrapper-for-the-console-to-ensure-logs-are-only-displayed-when-enabled"
+              },
+              "depth": 3
+            }
+          ]
         }, {
           "type": "file",
           "data": {
@@ -566,8 +587,8 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                   "type": "heading",
                   "data": {
                     "level": 3,
-                    "title": "Simple key/value store with utility functions from LoDash.",
-                    "slug": "simple-keyvalue-store-with-utility-functions-from-lodash"
+                    "title": "Simple key/value store with utility functions from Lo-Dash.",
+                    "slug": "simple-keyvalue-store-with-utility-functions-from-lo-dash"
                   },
                   "depth": 3
                 }
@@ -581,8 +602,8 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "type": "heading",
               "data": {
                 "level": 3,
-                "title": "Simple key/value store with utility functions from LoDash.",
-                "slug": "simple-keyvalue-store-with-utility-functions-from-lodash"
+                "title": "Simple key/value store with utility functions from Lo-Dash.",
+                "slug": "simple-keyvalue-store-with-utility-functions-from-lo-dash"
               },
               "depth": 3
             }
@@ -660,8 +681,8 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                   "type": "heading",
                   "data": {
                     "level": 3,
-                    "title": "Direct alias to LoDash.",
-                    "slug": "direct-alias-to-lodash"
+                    "title": "Direct alias to Lo-Dash.",
+                    "slug": "direct-alias-to-lo-dash"
                   },
                   "depth": 3
                 }
@@ -675,8 +696,8 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "type": "heading",
               "data": {
                 "level": 3,
-                "title": "Direct alias to LoDash.",
-                "slug": "direct-alias-to-lodash"
+                "title": "Direct alias to Lo-Dash.",
+                "slug": "direct-alias-to-lo-dash"
               },
               "depth": 3
             }
@@ -725,8 +746,8 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                   "type": "heading",
                   "data": {
                     "level": 2,
-                    "title": "Router extension",
-                    "slug": "router-extension"
+                    "title": "Routing extension",
+                    "slug": "routing-extension"
                   },
                   "depth": 2
                 }, {
@@ -736,7 +757,34 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     "title": "MVC extension",
                     "slug": "mvc-extension"
                   },
-                  "depth": 2
+                  "depth": 2,
+                  "children": [
+                    {
+                      "type": "heading",
+                      "data": {
+                        "level": 3,
+                        "title": "Model",
+                        "slug": "model"
+                      },
+                      "depth": 3
+                    }, {
+                      "type": "heading",
+                      "data": {
+                        "level": 3,
+                        "title": "Collection",
+                        "slug": "collection"
+                      },
+                      "depth": 3
+                    }, {
+                      "type": "heading",
+                      "data": {
+                        "level": 3,
+                        "title": "View",
+                        "slug": "view"
+                      },
+                      "depth": 3
+                    }
+                  ]
                 }, {
                   "type": "heading",
                   "data": {
@@ -772,8 +820,8 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "type": "heading",
               "data": {
                 "level": 2,
-                "title": "Router extension",
-                "slug": "router-extension"
+                "title": "Routing extension",
+                "slug": "routing-extension"
               },
               "depth": 2
             }, {
@@ -783,7 +831,34 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                 "title": "MVC extension",
                 "slug": "mvc-extension"
               },
-              "depth": 2
+              "depth": 2,
+              "children": [
+                {
+                  "type": "heading",
+                  "data": {
+                    "level": 3,
+                    "title": "Model",
+                    "slug": "model"
+                  },
+                  "depth": 3
+                }, {
+                  "type": "heading",
+                  "data": {
+                    "level": 3,
+                    "title": "Collection",
+                    "slug": "collection"
+                  },
+                  "depth": 3
+                }, {
+                  "type": "heading",
+                  "data": {
+                    "level": 3,
+                    "title": "View",
+                    "slug": "view"
+                  },
+                  "depth": 3
+                }
+              ]
             }, {
               "type": "heading",
               "data": {

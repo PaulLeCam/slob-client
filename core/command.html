@@ -5,7 +5,7 @@
 <span class="p">],</span> <span class="nf">(promise) -&gt;</span>
 
   <span class="nv">callbacks = </span><span class="p">{}</span></div></div></div><div class="segment"><div class="comments"><div class="wrapper"><p>Register the name and function of a command.
-The command function will be passed the deferred object it needs to either <code>resolve()</code> or <code>reject()</code></p></div></div><div class="code"><div class="wrapper">  <span class="nv">register: </span><span class="nf">(name, callback) -&gt;</span>
+The command function will be passed the deferred object it needs to either <code>resolve()</code> or <code>reject()</code>.</p></div></div><div class="code"><div class="wrapper">  <span class="nv">register: </span><span class="nf">(name, callback) -&gt;</span>
     <span class="nx">callbacks</span><span class="p">[</span><span class="nx">name</span><span class="p">]</span> <span class="o">=</span> <span class="nx">callback</span></div></div></div><div class="segment"><div class="comments"><div class="wrapper"><p>Request a command call by its name, adding arguments.
 The request function will return a promise that can be either resolved or rejected by the command function.
 If no command of this name was registered, the promise will be rejected with an error.</p></div></div><div class="code"><div class="wrapper">  <span class="nv">request: </span><span class="nf">(name, args...) -&gt;</span>
