@@ -393,33 +393,12 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                 "slug": "mvc",
                 "isFileHeader": true
               },
-              "depth": 1,
-              "children": [
-                {
-                  "type": "heading",
-                  "data": {
-                    "level": 3,
-                    "title": "Aliases to Backbone Model, View and Collection.",
-                    "slug": "aliases-to-backbone-model-view-and-collection"
-                  },
-                  "depth": 3
-                }
-              ]
+              "depth": 1
             },
             "title": "mvc"
           },
           "depth": 2,
-          "outline": [
-            {
-              "type": "heading",
-              "data": {
-                "level": 3,
-                "title": "Aliases to Backbone Model, View and Collection.",
-                "slug": "aliases-to-backbone-model-view-and-collection"
-              },
-              "depth": 3
-            }
-          ]
+          "outline": []
         }, {
           "type": "file",
           "data": {
