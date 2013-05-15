@@ -9,7 +9,7 @@ define [
 
     constructor: (@data = {}) ->
       # Allow to create new instance by calling `Store()` instead of `new Store()`
-      new Store @data unless @ instanceof Store
+      return new Store @data unless @ instanceof Store
 
     keys: ->
       util.keys @data

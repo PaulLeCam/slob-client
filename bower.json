@@ -2,17 +2,16 @@
   "name": "slob",
   "version": "0.0.4",
   "dependencies": {
-    "jquery": "v1.9.1",
+    "jquery": "~1.9.1",
     "backbone": "~1.0.0",
-    "handlebars": "~1.0.0-rc.3",
-    "lodash": "~1.1.1",
+    "handlebars": "~1.0.0",
+    "lodash": "*",
     "requirejs": "~2.1.5",
-    "json3": "~3.2.4"
+    "json3": "*"
   },
   "ignore": [
     ".*",
     "*.md",
-    "package.json",
-    "example"
+    "package.json"
   ]
 }
