@@ -11,6 +11,7 @@ define [
   # Empty replacement functions for console if they are not available
   csl = console ?
     log: ->
+    info: ->
     warn: ->
     error: ->
 
@@ -31,7 +32,7 @@ define [
     active: no
 
   # Decorate console functions to ensure they are only executed when logging is enabled
-  util.each ["log", "warn", "error", "time", "timeEnd"], (func) ->
+  util.each ["log", "info", "warn", "error", "time", "timeEnd"], (func) ->
     api[func] = ->
       if @active then csl[func].apply csl, arguments
       @
