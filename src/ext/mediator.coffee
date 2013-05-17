@@ -3,9 +3,12 @@
 # It exposes functions to manipulate widgets, a pub/sub implementation, and the ability to (un)pipe events to or from the pub/sub.
 
 define [
-  "core/pubsub"
+  "core/util"
+  "core/events"
   "./widgets"
-], (pubsub, widgets) ->
+], (util, events, widgets) ->
+
+  pubsub = util.extend {}, events
 
   widgets: widgets
 
@@ -22,24 +25,24 @@ define [
     pubsub.emit.apply pubsub, arguments
     @
 
-  pipeFrom: (target, events, alias) ->
-    target.on events, (args...) ->
-      args.unshift alias ? events
+  pipeFrom: (target, ev, alias) ->
+    target.on ev, (args...) ->
+      args.unshift alias ? ev
       pubsub.emit.apply pubsub, args
     @
-  unpipeFrom: (target, events, alias) ->
-    target.off events, (args...) ->
-      args.unshift alias ? events
+  unpipeFrom: (target, ev, alias) ->
+    target.off ev, (args...) ->
+      args.unshift alias ? ev
       pubsub.emit.apply pubsub, args
     @
 
-  pipeTo: (target, events, alias) ->
-    @on events, (args...) ->
-      args.unshift alias ? events
+  pipeTo: (target, ev, alias) ->
+    @on ev, (args...) ->
+      args.unshift alias ? ev
       target.emit.apply target, args
     @
-  unpipeTo: (target, events, alias) ->
-    @off events, (args...) ->
-      args.unshift alias ? events
+  unpipeTo: (target, ev, alias) ->
+    @off ev, (args...) ->
+      args.unshift alias ? ev
       target.emit.apply target, args
     @

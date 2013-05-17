@@ -1,7 +1,10 @@
 (function() {
   var __slice = [].slice;
 
-  define(["core/pubsub", "./widgets"], function(pubsub, widgets) {
+  define(["core/util", "core/events", "./widgets"], function(util, events, widgets) {
+    var pubsub;
+
+    pubsub = util.extend({}, events);
     return {
       widgets: widgets,
       on: function() {
@@ -20,42 +23,42 @@
         pubsub.emit.apply(pubsub, arguments);
         return this;
       },
-      pipeFrom: function(target, events, alias) {
-        target.on(events, function() {
+      pipeFrom: function(target, ev, alias) {
+        target.on(ev, function() {
           var args;
 
           args = 1 <= arguments.length ? __slice.call(arguments, 0) : [];
-          args.unshift(alias != null ? alias : events);
+          args.unshift(alias != null ? alias : ev);
           return pubsub.emit.apply(pubsub, args);
         });
         return this;
       },
-      unpipeFrom: function(target, events, alias) {
-        target.off(events, function() {
+      unpipeFrom: function(target, ev, alias) {
+        target.off(ev, function() {
           var args;
 
           args = 1 <= arguments.length ? __slice.call(arguments, 0) : [];
-          args.unshift(alias != null ? alias : events);
+          args.unshift(alias != null ? alias : ev);
           return pubsub.emit.apply(pubsub, args);
         });
         return this;
       },
-      pipeTo: function(target, events, alias) {
-        this.on(events, function() {
+      pipeTo: function(target, ev, alias) {
+        this.on(ev, function() {
           var args;
 
           args = 1 <= arguments.length ? __slice.call(arguments, 0) : [];
-          args.unshift(alias != null ? alias : events);
+          args.unshift(alias != null ? alias : ev);
           return target.emit.apply(target, args);
         });
         return this;
       },
-      unpipeTo: function(target, events, alias) {
-        this.off(events, function() {
+      unpipeTo: function(target, ev, alias) {
+        this.off(ev, function() {
           var args;
 
           args = 1 <= arguments.length ? __slice.call(arguments, 0) : [];
-          args.unshift(alias != null ? alias : events);
+          args.unshift(alias != null ? alias : ev);
           return target.emit.apply(target, args);
         });
         return this;

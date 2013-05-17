@@ -1,6 +1,6 @@
 {
   "name": "slob",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "dependencies": {
     "jquery": "~1.9.1",
     "backbone": "~1.0.0",
@@ -11,7 +11,7 @@
   },
   "ignore": [
     ".*",
-    "*.md",
-    "package.json"
+    "package.json",
+    "Gruntfile.coffee"
   ]
 }
