@@ -455,53 +455,6 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "singleLineComment": ["#"],
               "name": "CoffeeScript"
             },
-            "sourcePath": "/Users/paul/Dev/PaulLeCam/slob-client/src/core/pubsub.coffee",
-            "projectPath": "src/core/pubsub.coffee",
-            "targetPath": "core/pubsub",
-            "firstHeader": {
-              "type": "heading",
-              "data": {
-                "level": 1,
-                "title": "pubsub",
-                "slug": "pubsub",
-                "isFileHeader": true
-              },
-              "depth": 1,
-              "children": [
-                {
-                  "type": "heading",
-                  "data": {
-                    "level": 2,
-                    "title": "Implementation of Backbone Events for application pub/sub.",
-                    "slug": "implementation-of-backbone-events-for-application-pubsub"
-                  },
-                  "depth": 2
-                }
-              ]
-            },
-            "title": "pubsub"
-          },
-          "depth": 2,
-          "outline": [
-            {
-              "type": "heading",
-              "data": {
-                "level": 2,
-                "title": "Implementation of Backbone Events for application pub/sub.",
-                "slug": "implementation-of-backbone-events-for-application-pubsub"
-              },
-              "depth": 2
-            }
-          ]
-        }, {
-          "type": "file",
-          "data": {
-            "language": {
-              "nameMatchers": [".coffee", "Cakefile"],
-              "pygmentsLexer": "coffee-script",
-              "singleLineComment": ["#"],
-              "name": "CoffeeScript"
-            },
             "sourcePath": "/Users/paul/Dev/PaulLeCam/slob-client/src/core/routing.coffee",
             "projectPath": "src/core/routing.coffee",
             "targetPath": "core/routing",

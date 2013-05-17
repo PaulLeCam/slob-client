@@ -2,9 +2,12 @@
 
 <p>The mediator module presents a simple API for application modules to interact with each other in a decoupled manner.
 It exposes functions to manipulate widgets, a pub/sub implementation, and the ability to (un)pipe events to or from the pub/sub.</p></div></div><div class="code"><div class="wrapper"><span class="nx">define</span> <span class="p">[</span>
-  <span class="s">&quot;core/pubsub&quot;</span>
+  <span class="s">&quot;core/util&quot;</span>
+  <span class="s">&quot;core/events&quot;</span>
   <span class="s">&quot;./widgets&quot;</span>
-<span class="p">],</span> <span class="nf">(pubsub, widgets) -&gt;</span>
+<span class="p">],</span> <span class="nf">(util, events, widgets) -&gt;</span>
+
+  <span class="nv">pubsub = </span><span class="nx">util</span><span class="p">.</span><span class="nx">extend</span> <span class="p">{},</span> <span class="nx">events</span>
 
   <span class="nv">widgets: </span><span class="nx">widgets</span>
 
@@ -21,24 +24,24 @@ It exposes functions to manipulate widgets, a pub/sub implementation, and the ab
     <span class="nx">pubsub</span><span class="p">.</span><span class="nx">emit</span><span class="p">.</span><span class="nx">apply</span> <span class="nx">pubsub</span><span class="p">,</span> <span class="nx">arguments</span>
     <span class="nx">@</span>
 
-  <span class="nv">pipeFrom: </span><span class="nf">(target, events, alias) -&gt;</span>
-    <span class="nx">target</span><span class="p">.</span><span class="nx">on</span> <span class="nx">events</span><span class="p">,</span> <span class="nf">(args...) -&gt;</span>
-      <span class="nx">args</span><span class="p">.</span><span class="nx">unshift</span> <span class="nx">alias</span> <span class="o">?</span> <span class="nx">events</span>
+  <span class="nv">pipeFrom: </span><span class="nf">(target, ev, alias) -&gt;</span>
+    <span class="nx">target</span><span class="p">.</span><span class="nx">on</span> <span class="nx">ev</span><span class="p">,</span> <span class="nf">(args...) -&gt;</span>
+      <span class="nx">args</span><span class="p">.</span><span class="nx">unshift</span> <span class="nx">alias</span> <span class="o">?</span> <span class="nx">ev</span>
       <span class="nx">pubsub</span><span class="p">.</span><span class="nx">emit</span><span class="p">.</span><span class="nx">apply</span> <span class="nx">pubsub</span><span class="p">,</span> <span class="nx">args</span>
     <span class="nx">@</span>
-  <span class="nv">unpipeFrom: </span><span class="nf">(target, events, alias) -&gt;</span>
-    <span class="nx">target</span><span class="p">.</span><span class="nx">off</span> <span class="nx">events</span><span class="p">,</span> <span class="nf">(args...) -&gt;</span>
-      <span class="nx">args</span><span class="p">.</span><span class="nx">unshift</span> <span class="nx">alias</span> <span class="o">?</span> <span class="nx">events</span>
+  <span class="nv">unpipeFrom: </span><span class="nf">(target, ev, alias) -&gt;</span>
+    <span class="nx">target</span><span class="p">.</span><span class="nx">off</span> <span class="nx">ev</span><span class="p">,</span> <span class="nf">(args...) -&gt;</span>
+      <span class="nx">args</span><span class="p">.</span><span class="nx">unshift</span> <span class="nx">alias</span> <span class="o">?</span> <span class="nx">ev</span>
       <span class="nx">pubsub</span><span class="p">.</span><span class="nx">emit</span><span class="p">.</span><span class="nx">apply</span> <span class="nx">pubsub</span><span class="p">,</span> <span class="nx">args</span>
     <span class="nx">@</span>
 
-  <span class="nv">pipeTo: </span><span class="nf">(target, events, alias) -&gt;</span>
-    <span class="nx">@</span><span class="kc">on</span> <span class="nx">events</span><span class="p">,</span> <span class="nf">(args...) -&gt;</span>
-      <span class="nx">args</span><span class="p">.</span><span class="nx">unshift</span> <span class="nx">alias</span> <span class="o">?</span> <span class="nx">events</span>
+  <span class="nv">pipeTo: </span><span class="nf">(target, ev, alias) -&gt;</span>
+    <span class="nx">@</span><span class="kc">on</span> <span class="nx">ev</span><span class="p">,</span> <span class="nf">(args...) -&gt;</span>
+      <span class="nx">args</span><span class="p">.</span><span class="nx">unshift</span> <span class="nx">alias</span> <span class="o">?</span> <span class="nx">ev</span>
       <span class="nx">target</span><span class="p">.</span><span class="nx">emit</span><span class="p">.</span><span class="nx">apply</span> <span class="nx">target</span><span class="p">,</span> <span class="nx">args</span>
     <span class="nx">@</span>
-  <span class="nv">unpipeTo: </span><span class="nf">(target, events, alias) -&gt;</span>
-    <span class="nx">@</span><span class="kc">off</span> <span class="nx">events</span><span class="p">,</span> <span class="nf">(args...) -&gt;</span>
-      <span class="nx">args</span><span class="p">.</span><span class="nx">unshift</span> <span class="nx">alias</span> <span class="o">?</span> <span class="nx">events</span>
+  <span class="nv">unpipeTo: </span><span class="nf">(target, ev, alias) -&gt;</span>
+    <span class="nx">@</span><span class="kc">off</span> <span class="nx">ev</span><span class="p">,</span> <span class="nf">(args...) -&gt;</span>
+      <span class="nx">args</span><span class="p">.</span><span class="nx">unshift</span> <span class="nx">alias</span> <span class="o">?</span> <span class="nx">ev</span>
       <span class="nx">target</span><span class="p">.</span><span class="nx">emit</span><span class="p">.</span><span class="nx">apply</span> <span class="nx">target</span><span class="p">,</span> <span class="nx">args</span>
     <span class="nx">@</span></div></div></div></div></body></html>
