@@ -70,6 +70,8 @@
     Model = (function(_super) {
       __extends(Model, _super);
 
+      Model.Store = Store;
+
       Model.prototype.store = new Store;
 
       function Model(params) {
@@ -190,9 +192,8 @@
       };
 
       Widget.prototype.start = function() {
-        if (this.rendered) {
-          return this.delegateEvents();
-        } else {
+        this.delegateEvents();
+        if (!this.rendered) {
           this.render();
           return this.rendered = true;
         }

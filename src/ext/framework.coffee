@@ -64,6 +64,8 @@ define [
 
   class Model extends mvc.Model
 
+    @Store = Store
+
     # Each Model class must have its own store of instances
     store: new Store
 
@@ -141,8 +143,8 @@ define [
     # When starting a widget for the first time, we render it.
     # Then, later calls to the function will ensure events are bound.
     start: ->
-      if @rendered then @delegateEvents()
-      else
+      @delegateEvents()
+      unless @rendered
         @render()
         @rendered = yes
 
