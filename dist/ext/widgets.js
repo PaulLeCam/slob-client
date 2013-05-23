@@ -1,5 +1,5 @@
 (function() {
-  define(["core/util", "core/dom", "core/promise", "core/store", "core/dev"], function(util, dom, promise, Store, dev) {
+  define(["core/dev", "core/dom", "core/promise", "core/store", "core/util"], function(dev, dom, promise, Store, util) {
     var elsStore, typesStore;
 
     typesStore = new Store;

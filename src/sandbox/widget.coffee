@@ -2,21 +2,19 @@
 # The widget sandbox is appropriate for user-facing modules such as pages and widgets.
 
 define [
-  "core/util"
+  "core/command"
+  "core/dev"
   "core/dom"
   "core/events"
   "core/promise"
-  "core/command"
   "core/store"
-  "core/dev"
+  "core/util"
   "ext/mediator"
   "ext/framework"
-], (util, dom, events, promise, command, Store, dev, mediator, framework) ->
+  "ext/widgets"
+], (command, dev, dom, events, promise, Store, util, mediator, framework, widgets) ->
 
-  util.extend {}, promise, mediator, framework,
-    {util},
-    {dom},
-    {events},
-    {Store},
-    {dev},
+  util.extend {}, mediator, framework, widgets,
+    promise,
+    {dev}, {dom}, {events}, {Store}, {util},
     request: command.request

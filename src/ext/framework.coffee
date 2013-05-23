@@ -2,14 +2,14 @@
 # The framework module extends functionalities from the core for the needs of the application.
 
 define [
-  "core/util"
+  "core/dev"
   "core/dom"
   "core/mvc"
-  "core/template"
   "core/routing"
   "core/store"
-  "core/dev"
-], (util, dom, mvc, template, routing, Store, dev) ->
+  "core/template"
+  "core/util"
+], (dev, dom, mvc, routing, Store, template, util) ->
 
   # ## Template
 

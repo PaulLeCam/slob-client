@@ -1,12 +1,11 @@
 (function() {
   var __slice = [].slice;
 
-  define(["core/util", "core/events", "./widgets"], function(util, events, widgets) {
+  define(["core/events", "core/util"], function(events, util) {
     var pubsub;
 
     pubsub = util.extend({}, events);
     return {
-      widgets: widgets,
       on: function() {
         pubsub.on.apply(pubsub, arguments);
         return this;

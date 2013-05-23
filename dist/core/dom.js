@@ -3,6 +3,9 @@
 
   define(["jquery"], function($) {
     return {
+      create: function(element) {
+        return $("<" + element + "/>");
+      },
       find: function(selector, context) {
         if (context == null) {
           context = document;

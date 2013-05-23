@@ -5,12 +5,12 @@
 # start and stop all widgets of a certain type, or for a certain DOM element, at once.
 
 define [
-  "core/util"
+  "core/dev"
   "core/dom"
   "core/promise"
   "core/store"
-  "core/dev"
-], (util, dom, promise, Store, dev) ->
+  "core/util"
+], (dev, dom, promise, Store, util) ->
 
   # We keep references to widgets in two stores: one for widgets types and the other for DOM elements
   typesStore = new Store

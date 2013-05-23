@@ -5,6 +5,7 @@ define [
   "jquery"
 ], ($) ->
 
+  create: (element) -> $ "<#{ element }/>"
   find: (selector, context = document) ->
     if selector is context then $ context
     else $(context).find selector

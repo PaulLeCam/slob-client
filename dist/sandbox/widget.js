@@ -1,7 +1,7 @@
 (function() {
-  define(["core/util", "core/dom", "core/events", "core/promise", "core/command", "core/store", "core/dev", "ext/mediator", "ext/framework"], function(util, dom, events, promise, command, Store, dev, mediator, framework) {
-    return util.extend({}, promise, mediator, framework, {
-      util: util
+  define(["core/command", "core/dev", "core/dom", "core/events", "core/promise", "core/store", "core/util", "ext/mediator", "ext/framework", "ext/widgets"], function(command, dev, dom, events, promise, Store, util, mediator, framework, widgets) {
+    return util.extend({}, mediator, framework, widgets, promise, {
+      dev: dev
     }, {
       dom: dom
     }, {
@@ -9,7 +9,7 @@
     }, {
       Store: Store
     }, {
-      dev: dev
+      util: util
     }, {
       request: command.request
     });

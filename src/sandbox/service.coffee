@@ -3,23 +3,20 @@
 # communicate with the server or other APIs, or perform background tasks.
 
 define [
-  "core/util"
+  "core/command"
+  "core/dev"
   "core/events"
   "core/http"
   "core/promise"
-  "core/command"
   "core/store"
-  "core/dev"
+  "core/util"
   "ext/mediator"
   "ext/framework"
-], (util, events, http, promise, command, Store, dev, mediator, framework) ->
+], (command, dev, events, http, promise, Store, util, mediator, framework) ->
 
-  util.extend {}, promise, command, mediator,
-    {util},
-    {events},
-    {http},
-    {Store},
-    {dev},
+  util.extend {}, mediator,
+    promise, command,
+    {dev}, {events}, {http}, {Store}, {util}
     routing: framework.routing,
     mvc:
       Model: framework.mvc.Model

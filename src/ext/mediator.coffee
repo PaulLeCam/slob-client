@@ -1,16 +1,13 @@
 # # mediator
 # The mediator module presents a simple API for application modules to interact with each other in a decoupled manner.
-# It exposes functions to manipulate widgets, a pub/sub implementation, and the ability to (un)pipe events to or from the pub/sub.
+# It exposes a pub/sub implementation, and the ability to (un)pipe events to or from the pub/sub.
 
 define [
-  "core/util"
   "core/events"
-  "./widgets"
-], (util, events, widgets) ->
+  "core/util"
+], (events, util) ->
 
   pubsub = util.extend {}, events
-
-  widgets: widgets
 
   on: ->
     pubsub.on.apply pubsub, arguments

@@ -2,7 +2,7 @@
   var __hasProp = {}.hasOwnProperty,
     __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
 
-  define(["core/util", "core/dom", "core/mvc", "core/template", "core/routing", "core/store", "core/dev"], function(util, dom, mvc, template, routing, Store, dev) {
+  define(["core/dev", "core/dom", "core/mvc", "core/routing", "core/store", "core/template", "core/util"], function(dev, dom, mvc, routing, Store, template, util) {
     var Collection, Model, Router, View, Widget, subviews, _ref, _ref1, _ref2, _ref3;
 
     subviews = new Store;
