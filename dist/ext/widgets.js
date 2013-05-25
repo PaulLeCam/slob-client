@@ -115,6 +115,36 @@
         }
         return this;
       },
+      shutdown: function(type, el) {
+        var elTypes, typeEls, w, _i, _j, _len, _len1, _ref, _ref1;
+
+        if ((type == null) || (el == null) || type === "*" && el === "*") {
+          dev.warn("Wrong parameters to stop widget", type, el);
+          return this;
+        }
+        if (el === "*") {
+          if (typeEls = typesStore.get(type)) {
+            _ref = typeEls.values();
+            for (_i = 0, _len = _ref.length; _i < _len; _i++) {
+              w = _ref[_i];
+              w.shutdown();
+            }
+          }
+        } else {
+          if (elTypes = elsStore.get(el)) {
+            if (type === "*") {
+              _ref1 = elTypes.values();
+              for (_j = 0, _len1 = _ref1.length; _j < _len1; _j++) {
+                w = _ref1[_j];
+                w.shutdown();
+              }
+            } else if ((w = elTypes.get(type))) {
+              w.shutdown();
+            }
+          }
+        }
+        return this;
+      },
       remove: function(el) {
         var elTypes, key, typesEl, _i, _len, _ref;
 

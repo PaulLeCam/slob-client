@@ -6,6 +6,7 @@
       create: function(element) {
         return $("<" + element + "/>");
       },
+      parse: $.parseHTML,
       find: function(selector, context) {
         if (context == null) {
           context = document;

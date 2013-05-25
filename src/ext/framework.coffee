@@ -48,8 +48,7 @@ define [
 
     # Load a page module an call its initialization function with the specified arguments,
     # passing it the name of the previous page
-    loadPage: (page, args = []) ->
-      args = [].slice.call args, 0
+    loadPage: (page, args...) ->
       args.unshift @previous
       require ["pages/#{ page }"], (run) ->
         run.apply run, args
@@ -151,6 +150,10 @@ define [
     # Alias to `undelegateEvents()`
     stop: ->
       @undelegateEvents()
+
+    shutdown: ->
+      @stop()
+      @$el.html ""
 
   # ## Public API
 

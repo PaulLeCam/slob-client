@@ -6,6 +6,7 @@ define [
 ], ($) ->
 
   create: (element) -> $ "<#{ element }/>"
+  parse: $.parseHTML
   find: (selector, context = document) ->
     if selector is context then $ context
     else $(context).find selector

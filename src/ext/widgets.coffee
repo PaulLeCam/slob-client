@@ -111,6 +111,27 @@ define [
         else if (w = elTypes.get type) then w.stop()
     @
 
+  # Stop and empty HTML content
+  shutdown: (type, el) ->
+    # Check for wrong parameters
+    if not type? or not el? or type is "*" and el is "*"
+      dev.warn "Wrong parameters to stop widget", type, el
+      return @
+
+    # Shutdown all widgets of the specified type
+    if el is "*"
+      if typeEls = typesStore.get type
+        w.shutdown() for w in typeEls.values()
+
+    else
+      if elTypes = elsStore.get el
+        # Shutdown all widgets for element
+        if type is "*"
+          w.shutdown() for w in elTypes.values()
+        # Shutdown single widget
+        else if (w = elTypes.get type) then w.shutdown()
+    @
+
   # The `remove()` function removes all widgets for the specified DOM element and removes this element from the DOM.
   remove: (el) ->
     # Check for wrong parameters
