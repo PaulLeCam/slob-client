@@ -1,13 +1,13 @@
 {
   "name": "slob",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "dependencies": {
-    "handlebars": "~1.0.0-rc.3",
-    "jquery": "~1.9.1",
+    "handlebars": "1.x",
+    "jquery": "1.x",
     "lodash": "*",
     "json3": "*",
-    "backbone": "~1.0.0",
-    "requirejs": "~2.1.6"
+    "backbone": "1.x",
+    "requirejs": "2.x"
   },
   "ignore": [
     "**/.*",

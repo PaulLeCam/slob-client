@@ -5,6 +5,7 @@
 define [
   "core/command"
   "core/dev"
+  "core/dom"
   "core/events"
   "core/http"
   "core/promise"
@@ -12,9 +13,9 @@ define [
   "core/util"
   "ext/mediator"
   "ext/framework"
-], (command, dev, events, http, promise, Store, util, mediator, framework) ->
+], (command, dev, dom, events, http, promise, Store, util, mediator, framework) ->
 
   util.extend {},
     mediator, framework,
     command, promise,
-    {dev}, {events}, {http}, {Store}, {util}
+    {dev}, {dom}, {events}, {http}, {Store}, {util}

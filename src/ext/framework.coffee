@@ -37,10 +37,8 @@ define [
   # Render all subviews present in a DOM element identified by a jQuery object
   template.renderSubViews = ($el) ->
     $el.find("view").each (i, view) ->
-      $view = dom.find view, $el
+      $view = $el.find view
       $view.replaceWith template.renderSubView $view.data "cid"
-
-  template.registerHelper "subView", template.addSubView
 
   # ## Router
 
@@ -151,8 +149,10 @@ define [
     stop: ->
       @undelegateEvents()
 
+    # Stop widget and empty DOM element
     shutdown: ->
       @stop()
+      @rendered = no
       @$el.html ""
 
   # ## Public API

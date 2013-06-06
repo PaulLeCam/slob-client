@@ -29,11 +29,10 @@
       return $el.find("view").each(function(i, view) {
         var $view;
 
-        $view = dom.find(view, $el);
+        $view = $el.find(view);
         return $view.replaceWith(template.renderSubView($view.data("cid")));
       });
     };
-    template.registerHelper("subView", template.addSubView);
     Router = (function(_super) {
       __extends(Router, _super);
 
@@ -205,6 +204,7 @@
 
       Widget.prototype.shutdown = function() {
         this.stop();
+        this.rendered = false;
         return this.$el.html("");
       };
 
