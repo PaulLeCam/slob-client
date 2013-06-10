@@ -4,6 +4,8 @@
   <span class="s">&quot;jquery&quot;</span>
 <span class="p">],</span> <span class="nf">($) -&gt;</span>
 
+  <span class="nv">create: </span><span class="nf">(element) -&gt;</span> <span class="nx">$</span> <span class="s">&quot;&lt;</span><span class="si">#{</span> <span class="nx">element</span> <span class="si">}</span><span class="s">/&gt;&quot;</span>
+  <span class="nv">parse: </span><span class="nx">$</span><span class="p">.</span><span class="nx">parseHTML</span>
   <span class="nv">find: </span><span class="nf">(selector, context = document) -&gt;</span>
     <span class="k">if</span> <span class="nx">selector</span> <span class="o">is</span> <span class="nx">context</span> <span class="k">then</span> <span class="nx">$</span> <span class="nx">context</span>
     <span class="k">else</span> <span class="nx">$</span><span class="p">(</span><span class="nx">context</span><span class="p">).</span><span class="nx">find</span> <span class="nx">selector</span>
