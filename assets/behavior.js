@@ -653,140 +653,23 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "singleLineComment": ["#"],
               "name": "CoffeeScript"
             },
-            "sourcePath": "/Users/paul/Dev/PaulLeCam/slob-client/src/ext/framework.coffee",
-            "projectPath": "src/ext/framework.coffee",
-            "targetPath": "ext/framework",
+            "sourcePath": "/Users/paul/Dev/PaulLeCam/slob-client/src/ext/data-store.coffee",
+            "projectPath": "src/ext/data-store.coffee",
+            "targetPath": "ext/data-store",
             "firstHeader": {
               "type": "heading",
               "data": {
                 "level": 1,
-                "title": "framework",
-                "slug": "framework",
+                "title": "data-store",
+                "slug": "data-store",
                 "isFileHeader": true
               },
-              "depth": 1,
-              "children": [
-                {
-                  "type": "heading",
-                  "data": {
-                    "level": 2,
-                    "title": "Template",
-                    "slug": "template"
-                  },
-                  "depth": 2
-                }, {
-                  "type": "heading",
-                  "data": {
-                    "level": 2,
-                    "title": "Router",
-                    "slug": "router"
-                  },
-                  "depth": 2
-                }, {
-                  "type": "heading",
-                  "data": {
-                    "level": 2,
-                    "title": "Model",
-                    "slug": "model"
-                  },
-                  "depth": 2
-                }, {
-                  "type": "heading",
-                  "data": {
-                    "level": 2,
-                    "title": "Collection",
-                    "slug": "collection"
-                  },
-                  "depth": 2
-                }, {
-                  "type": "heading",
-                  "data": {
-                    "level": 2,
-                    "title": "View",
-                    "slug": "view"
-                  },
-                  "depth": 2
-                }, {
-                  "type": "heading",
-                  "data": {
-                    "level": 2,
-                    "title": "Widget",
-                    "slug": "widget"
-                  },
-                  "depth": 2
-                }, {
-                  "type": "heading",
-                  "data": {
-                    "level": 2,
-                    "title": "Public API",
-                    "slug": "public-api"
-                  },
-                  "depth": 2
-                }
-              ]
+              "depth": 1
             },
-            "title": "framework"
+            "title": "data-store"
           },
           "depth": 2,
-          "outline": [
-            {
-              "type": "heading",
-              "data": {
-                "level": 2,
-                "title": "Template",
-                "slug": "template"
-              },
-              "depth": 2
-            }, {
-              "type": "heading",
-              "data": {
-                "level": 2,
-                "title": "Router",
-                "slug": "router"
-              },
-              "depth": 2
-            }, {
-              "type": "heading",
-              "data": {
-                "level": 2,
-                "title": "Model",
-                "slug": "model"
-              },
-              "depth": 2
-            }, {
-              "type": "heading",
-              "data": {
-                "level": 2,
-                "title": "Collection",
-                "slug": "collection"
-              },
-              "depth": 2
-            }, {
-              "type": "heading",
-              "data": {
-                "level": 2,
-                "title": "View",
-                "slug": "view"
-              },
-              "depth": 2
-            }, {
-              "type": "heading",
-              "data": {
-                "level": 2,
-                "title": "Widget",
-                "slug": "widget"
-              },
-              "depth": 2
-            }, {
-              "type": "heading",
-              "data": {
-                "level": 2,
-                "title": "Public API",
-                "slug": "public-api"
-              },
-              "depth": 2
-            }
-          ]
+          "outline": []
         }, {
           "type": "file",
           "data": {
@@ -810,6 +693,224 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "depth": 1
             },
             "title": "mediator"
+          },
+          "depth": 2,
+          "outline": []
+        }, {
+          "type": "file",
+          "data": {
+            "language": {
+              "nameMatchers": [".coffee", "Cakefile"],
+              "pygmentsLexer": "coffee-script",
+              "singleLineComment": ["#"],
+              "name": "CoffeeScript"
+            },
+            "sourcePath": "/Users/paul/Dev/PaulLeCam/slob-client/src/ext/mvc-factory.coffee",
+            "projectPath": "src/ext/mvc-factory.coffee",
+            "targetPath": "ext/mvc-factory",
+            "firstHeader": {
+              "type": "heading",
+              "data": {
+                "level": 1,
+                "title": "mvc-factory",
+                "slug": "mvc-factory",
+                "isFileHeader": true
+              },
+              "depth": 1
+            },
+            "title": "mvc-factory"
+          },
+          "depth": 2,
+          "outline": []
+        }, {
+          "type": "folder",
+          "data": {
+            "path": "ext/mvc",
+            "title": "mvc"
+          },
+          "depth": 2,
+          "children": [
+            {
+              "type": "file",
+              "data": {
+                "language": {
+                  "nameMatchers": [".coffee", "Cakefile"],
+                  "pygmentsLexer": "coffee-script",
+                  "singleLineComment": ["#"],
+                  "name": "CoffeeScript"
+                },
+                "sourcePath": "/Users/paul/Dev/PaulLeCam/slob-client/src/ext/mvc/data-parse.coffee",
+                "projectPath": "src/ext/mvc/data-parse.coffee",
+                "targetPath": "ext/mvc/data-parse",
+                "firstHeader": {
+                  "type": "heading",
+                  "data": {
+                    "level": 1,
+                    "title": "data-parse",
+                    "slug": "data-parse",
+                    "isFileHeader": true
+                  },
+                  "depth": 1
+                },
+                "title": "data-parse"
+              },
+              "depth": 3,
+              "outline": []
+            }, {
+              "type": "file",
+              "data": {
+                "language": {
+                  "nameMatchers": [".coffee", "Cakefile"],
+                  "pygmentsLexer": "coffee-script",
+                  "singleLineComment": ["#"],
+                  "name": "CoffeeScript"
+                },
+                "sourcePath": "/Users/paul/Dev/PaulLeCam/slob-client/src/ext/mvc/model-cache.coffee",
+                "projectPath": "src/ext/mvc/model-cache.coffee",
+                "targetPath": "ext/mvc/model-cache",
+                "firstHeader": {
+                  "type": "heading",
+                  "data": {
+                    "level": 1,
+                    "title": "model-cache",
+                    "slug": "model-cache",
+                    "isFileHeader": true
+                  },
+                  "depth": 1
+                },
+                "title": "model-cache"
+              },
+              "depth": 3,
+              "outline": []
+            }, {
+              "type": "file",
+              "data": {
+                "language": {
+                  "nameMatchers": [".coffee", "Cakefile"],
+                  "pygmentsLexer": "coffee-script",
+                  "singleLineComment": ["#"],
+                  "name": "CoffeeScript"
+                },
+                "sourcePath": "/Users/paul/Dev/PaulLeCam/slob-client/src/ext/mvc/view-from-server.coffee",
+                "projectPath": "src/ext/mvc/view-from-server.coffee",
+                "targetPath": "ext/mvc/view-from-server",
+                "firstHeader": {
+                  "type": "heading",
+                  "data": {
+                    "level": 1,
+                    "title": "view-from-server",
+                    "slug": "view-from-server",
+                    "isFileHeader": true
+                  },
+                  "depth": 1
+                },
+                "title": "view-from-server"
+              },
+              "depth": 3,
+              "outline": []
+            }, {
+              "type": "file",
+              "data": {
+                "language": {
+                  "nameMatchers": [".coffee", "Cakefile"],
+                  "pygmentsLexer": "coffee-script",
+                  "singleLineComment": ["#"],
+                  "name": "CoffeeScript"
+                },
+                "sourcePath": "/Users/paul/Dev/PaulLeCam/slob-client/src/ext/mvc/view-renderer.coffee",
+                "projectPath": "src/ext/mvc/view-renderer.coffee",
+                "targetPath": "ext/mvc/view-renderer",
+                "firstHeader": {
+                  "type": "heading",
+                  "data": {
+                    "level": 1,
+                    "title": "view-renderer",
+                    "slug": "view-renderer",
+                    "isFileHeader": true
+                  },
+                  "depth": 1
+                },
+                "title": "view-renderer"
+              },
+              "depth": 3,
+              "outline": []
+            }
+          ]
+        }, {
+          "type": "file",
+          "data": {
+            "language": {
+              "nameMatchers": [".coffee", "Cakefile"],
+              "pygmentsLexer": "coffee-script",
+              "singleLineComment": ["#"],
+              "name": "CoffeeScript"
+            },
+            "sourcePath": "/Users/paul/Dev/PaulLeCam/slob-client/src/ext/routing.coffee",
+            "projectPath": "src/ext/routing.coffee",
+            "targetPath": "ext/routing",
+            "firstHeader": {
+              "type": "heading",
+              "data": {
+                "level": 1,
+                "title": "router",
+                "slug": "router",
+                "isFileHeader": true
+              },
+              "depth": 1
+            },
+            "title": "router"
+          },
+          "depth": 2,
+          "outline": []
+        }, {
+          "type": "file",
+          "data": {
+            "language": {
+              "nameMatchers": [".coffee", "Cakefile"],
+              "pygmentsLexer": "coffee-script",
+              "singleLineComment": ["#"],
+              "name": "CoffeeScript"
+            },
+            "sourcePath": "/Users/paul/Dev/PaulLeCam/slob-client/src/ext/template.coffee",
+            "projectPath": "src/ext/template.coffee",
+            "targetPath": "ext/template",
+            "firstHeader": {
+              "type": "heading",
+              "data": {
+                "level": 1,
+                "title": "template",
+                "slug": "template",
+                "isFileHeader": true
+              },
+              "depth": 1
+            },
+            "title": "template"
+          },
+          "depth": 2,
+          "outline": []
+        }, {
+          "type": "file",
+          "data": {
+            "language": {
+              "nameMatchers": [".coffee", "Cakefile"],
+              "pygmentsLexer": "coffee-script",
+              "singleLineComment": ["#"],
+              "name": "CoffeeScript"
+            },
+            "sourcePath": "/Users/paul/Dev/PaulLeCam/slob-client/src/ext/widget.coffee",
+            "projectPath": "src/ext/widget.coffee",
+            "targetPath": "ext/widget",
+            "firstHeader": {
+              "type": "heading",
+              "data": {
+                "level": 1,
+                "title": "widget",
+                "slug": "widget",
+                "isFileHeader": true
+              },
+              "depth": 1
+            },
+            "title": "widget"
           },
           "depth": 2,
           "outline": []
@@ -850,32 +951,6 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
       "depth": 1,
       "children": [
         {
-          "type": "file",
-          "data": {
-            "language": {
-              "nameMatchers": [".coffee", "Cakefile"],
-              "pygmentsLexer": "coffee-script",
-              "singleLineComment": ["#"],
-              "name": "CoffeeScript"
-            },
-            "sourcePath": "/Users/paul/Dev/PaulLeCam/slob-client/src/sandbox/component.coffee",
-            "projectPath": "src/sandbox/component.coffee",
-            "targetPath": "sandbox/component",
-            "firstHeader": {
-              "type": "heading",
-              "data": {
-                "level": 1,
-                "title": "component",
-                "slug": "component",
-                "isFileHeader": true
-              },
-              "depth": 1
-            },
-            "title": "component"
-          },
-          "depth": 2,
-          "outline": []
-        }, {
           "type": "file",
           "data": {
             "language": {

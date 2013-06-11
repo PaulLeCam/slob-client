@@ -1,0 +1,19 @@
+<!DOCTYPE html><html lang="en"><head><title>ext/widget</title></head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"><meta name="groc-relative-root" content="../"><meta name="groc-document-path" content="ext/widget"><meta name="groc-project-path" content="src/ext/widget.coffee"><meta name="groc-github-url" content="https://github.com/PaulLeCam/slob-client"><link rel="stylesheet" type="text/css" media="all" href="../assets/style.css"><script type="text/javascript" src="../assets/behavior.js"></script><body><div id="meta"><div class="file-path"><a href="https://github.com/PaulLeCam/slob-client/blob/master/src/ext/widget.coffee">src/ext/widget.coffee</a></div></div><div id="document"><div class="segment"><div class="comments"><div class="wrapper"><h1 id="widget">widget</h1>
+
+<p>A Widget is a customized View to be used with the widgets extension.</p></div></div><div class="code"><div class="wrapper"><span class="nx">define</span> <span class="p">[</span>
+  <span class="s">&quot;core/mvc&quot;</span>
+<span class="p">],</span> <span class="nf">(mvc) -&gt;</span>
+
+  <span class="k">class</span> <span class="nx">Widget</span> <span class="k">extends</span> <span class="nx">mvc</span><span class="p">.</span><span class="nx">View</span>
+
+    <span class="nv">contructor: </span><span class="nf">(options) -&gt;</span>
+      <span class="k">super</span> <span class="nx">options</span></div></div></div><div class="segment"><div class="comments"><div class="wrapper"><p>Make sure the widget does not start when instanciated</p></div></div><div class="code"><div class="wrapper">      <span class="nx">@stop</span><span class="p">()</span></div></div></div><div class="segment"><div class="comments"><div class="wrapper"><p>When starting a widget for the first time, we render it.
+Then, later calls to the function will ensure events are bound.</p></div></div><div class="code"><div class="wrapper">    <span class="nv">start: </span><span class="nf">-&gt;</span>
+      <span class="nx">@delegateEvents</span><span class="p">()</span>
+      <span class="k">unless</span> <span class="nx">@rendered</span>
+        <span class="nx">@render</span><span class="p">()</span>
+        <span class="vi">@rendered = </span><span class="kc">yes</span></div></div></div><div class="segment"><div class="comments"><div class="wrapper"><p>Alias to <code>undelegateEvents()</code></p></div></div><div class="code"><div class="wrapper">    <span class="nv">stop: </span><span class="nf">-&gt;</span>
+      <span class="nx">@undelegateEvents</span><span class="p">()</span></div></div></div><div class="segment"><div class="comments"><div class="wrapper"><p>Stop widget and empty DOM element</p></div></div><div class="code"><div class="wrapper">    <span class="nv">shutdown: </span><span class="nf">-&gt;</span>
+      <span class="nx">@stop</span><span class="p">()</span>
+      <span class="vi">@rendered = </span><span class="kc">no</span>
+      <span class="nx">@$el</span><span class="p">.</span><span class="nx">html</span> <span class="s">&quot;&quot;</span></div></div></div></div></body></html>

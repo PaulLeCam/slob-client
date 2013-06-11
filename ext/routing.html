@@ -1,0 +1,18 @@
+<!DOCTYPE html><html lang="en"><head><title>ext/routing</title></head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"><meta name="groc-relative-root" content="../"><meta name="groc-document-path" content="ext/routing"><meta name="groc-project-path" content="src/ext/routing.coffee"><meta name="groc-github-url" content="https://github.com/PaulLeCam/slob-client"><link rel="stylesheet" type="text/css" media="all" href="../assets/style.css"><script type="text/javascript" src="../assets/behavior.js"></script><body><div id="meta"><div class="file-path"><a href="https://github.com/PaulLeCam/slob-client/blob/master/src/ext/routing.coffee">src/ext/routing.coffee</a></div></div><div id="document"><div class="segment"><div class="comments"><div class="wrapper"><h1 id="router">router</h1>
+
+<p>Customize page loading and initialization.</p></div></div><div class="code"><div class="wrapper"><span class="nx">define</span> <span class="p">[</span>
+  <span class="s">&quot;core/routing&quot;</span>
+  <span class="s">&quot;core/util&quot;</span>
+<span class="p">],</span> <span class="nf">(routing, util) -&gt;</span>
+
+  <span class="k">class</span> <span class="nx">Router</span> <span class="k">extends</span> <span class="nx">routing</span><span class="p">.</span><span class="nx">Router</span></div></div></div><div class="segment"><div class="comments"><div class="wrapper"><p>Load a page module an call its initialization function with the specified arguments,
+passing it the name of the previous page</p></div></div><div class="code"><div class="wrapper">    <span class="nv">loadPage: </span><span class="nf">(page, args...) -&gt;</span>
+      <span class="nx">args</span><span class="p">.</span><span class="nx">unshift</span> <span class="nx">@previous</span>
+      <span class="nx">require</span> <span class="p">[</span><span class="s">&quot;pages/</span><span class="si">#{</span> <span class="nx">page</span> <span class="si">}</span><span class="s">&quot;</span><span class="p">],</span> <span class="nf">(run) -&gt;</span>
+        <span class="nx">run</span><span class="p">.</span><span class="nx">apply</span> <span class="nx">run</span><span class="p">,</span> <span class="nx">args</span>
+      <span class="vi">@previous = </span><span class="nx">page</span></div></div></div><div class="segment"><div class="comments"><div class="wrapper"><p>Set the current page and navigate to a specific URL</p></div></div><div class="code"><div class="wrapper">    <span class="nv">setPage: </span><span class="nf">(page = &quot;home&quot;, url = &quot;/&quot;) -&gt;</span>
+      <span class="vi">@previous = </span><span class="nx">page</span>
+      <span class="nx">@navigate</span> <span class="nx">url</span>
+
+  <span class="nv">routing.Router = </span><span class="nx">Router</span>
+  <span class="nx">routing</span></div></div></div></div></body></html>

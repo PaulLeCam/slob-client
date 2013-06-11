@@ -6,17 +6,17 @@ communicate with the server or other APIs, or perform background tasks.</p></div
   <span class="s">&quot;core/dev&quot;</span>
   <span class="s">&quot;core/events&quot;</span>
   <span class="s">&quot;core/http&quot;</span>
+  <span class="s">&quot;core/mvc&quot;</span>
   <span class="s">&quot;core/promise&quot;</span>
   <span class="s">&quot;core/store&quot;</span>
   <span class="s">&quot;core/util&quot;</span>
   <span class="s">&quot;ext/mediator&quot;</span>
-  <span class="s">&quot;ext/framework&quot;</span>
-<span class="p">],</span> <span class="nf">(command, dev, events, http, promise, Store, util, mediator, framework) -&gt;</span>
+  <span class="s">&quot;ext/routing&quot;</span>
+<span class="p">],</span> <span class="nf">(command, dev, events, http, mvc, promise, Store, util, mediator, routing) -&gt;</span>
 
   <span class="nx">util</span><span class="p">.</span><span class="nx">extend</span> <span class="p">{},</span> <span class="nx">mediator</span><span class="p">,</span>
     <span class="nx">promise</span><span class="p">,</span> <span class="nx">command</span><span class="p">,</span>
-    <span class="p">{</span><span class="nx">dev</span><span class="p">},</span> <span class="p">{</span><span class="nx">events</span><span class="p">},</span> <span class="p">{</span><span class="nx">http</span><span class="p">},</span> <span class="p">{</span><span class="nx">Store</span><span class="p">},</span> <span class="p">{</span><span class="nx">util</span><span class="p">}</span>
-    <span class="nv">routing: </span><span class="nx">framework</span><span class="p">.</span><span class="nx">routing</span><span class="p">,</span>
+    <span class="p">{</span><span class="nx">dev</span><span class="p">},</span> <span class="p">{</span><span class="nx">events</span><span class="p">},</span> <span class="p">{</span><span class="nx">http</span><span class="p">},</span> <span class="p">{</span><span class="nx">routing</span><span class="p">},</span> <span class="p">{</span><span class="nx">Store</span><span class="p">},</span> <span class="p">{</span><span class="nx">util</span><span class="p">}</span>
     <span class="nv">mvc:</span>
-      <span class="nv">Model: </span><span class="nx">framework</span><span class="p">.</span><span class="nx">mvc</span><span class="p">.</span><span class="nx">Model</span>
-      <span class="nv">Collection: </span><span class="nx">framework</span><span class="p">.</span><span class="nx">mvc</span><span class="p">.</span><span class="nx">Model</span></div></div></div></div></body></html>
+      <span class="nv">Model: </span><span class="nx">mvc</span><span class="p">.</span><span class="nx">Model</span>
+      <span class="nv">Collection: </span><span class="nx">mvc</span><span class="p">.</span><span class="nx">Collection</span></div></div></div></div></body></html>

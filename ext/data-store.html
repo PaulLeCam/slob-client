@@ -1,0 +1,90 @@
+<!DOCTYPE html><html lang="en"><head><title>ext/data-store</title></head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"><meta name="groc-relative-root" content="../"><meta name="groc-document-path" content="ext/data-store"><meta name="groc-project-path" content="src/ext/data-store.coffee"><meta name="groc-github-url" content="https://github.com/PaulLeCam/slob-client"><link rel="stylesheet" type="text/css" media="all" href="../assets/style.css"><script type="text/javascript" src="../assets/behavior.js"></script><body><div id="meta"><div class="file-path"><a href="https://github.com/PaulLeCam/slob-client/blob/master/src/ext/data-store.coffee">src/ext/data-store.coffee</a></div></div><div id="document"><div class="segment"><div class="comments"><div class="wrapper"><h1 id="data-store">data-store</h1>
+
+<p>Store extension to handle Models and Collections instances configurations, lazily loading and instanciating them when accessed.</p></div></div><div class="code"><div class="wrapper"><span class="nx">define</span> <span class="p">[</span>
+  <span class="s">&quot;core/mvc&quot;</span>
+  <span class="s">&quot;core/promise&quot;</span>
+  <span class="s">&quot;core/store&quot;</span>
+  <span class="s">&quot;core/util&quot;</span>
+  <span class="s">&quot;ext/mvc-factory&quot;</span>
+<span class="p">],</span> <span class="nf">(mvc, promise, Store, util, factory) -&gt;</span>
+
+  <span class="k">class</span> <span class="nx">DataStore</span>
+
+    <span class="nv">constructor: </span><span class="nf">(config = {}) -&gt;</span>
+      <span class="k">return</span> <span class="k">new</span> <span class="nx">DataStore</span> <span class="nx">config</span> <span class="k">unless</span> <span class="nx">@</span> <span class="k">instanceof</span> <span class="nx">DataStore</span>
+
+      <span class="vi">@config = </span><span class="k">new</span> <span class="nx">Store</span>
+      <span class="vi">@instances = </span><span class="k">new</span> <span class="nx">Store</span>
+
+      <span class="nx">@configure</span> <span class="nx">config</span>
+
+    <span class="nv">configure: </span><span class="nf">(config = {}) -&gt;</span>
+      <span class="k">if</span> <span class="nx">util</span><span class="p">.</span><span class="nx">isArray</span> <span class="nx">config</span>
+        <span class="nx">@config</span><span class="p">.</span><span class="nx">set</span> <span class="nx">item</span><span class="p">.</span><span class="nx">key</span><span class="p">,</span> <span class="nx">item</span> <span class="k">for</span> <span class="nx">item</span> <span class="k">in</span> <span class="nx">config</span>
+      <span class="k">else</span>
+        <span class="nx">@config</span><span class="p">.</span><span class="nx">set</span> <span class="nx">key</span><span class="p">,</span> <span class="nx">value</span> <span class="k">for</span> <span class="nx">key</span><span class="p">,</span> <span class="nx">value</span> <span class="k">of</span> <span class="nx">config</span>
+      <span class="nx">@</span>
+
+    <span class="nv">initialize: </span><span class="nf">(config) -&gt;</span>
+      <span class="nv">dfd = </span><span class="nx">promise</span><span class="p">.</span><span class="nx">deferred</span><span class="p">()</span></div></div></div><div class="segment"><div class="comments"><div class="wrapper"><p>Custom initialization</p></div></div><div class="code"><div class="wrapper">      <span class="k">if</span> <span class="nx">config</span><span class="o">?</span></div></div></div><div class="segment"><div class="comments"><div class="wrapper"><p>Only initialize white-listed keys</p></div></div><div class="code"><div class="wrapper">        <span class="k">if</span> <span class="nx">util</span><span class="p">.</span><span class="nx">isArray</span> <span class="nx">config</span>
+          <span class="nv">promises = </span><span class="p">[]</span>
+          <span class="k">for</span> <span class="nx">key</span> <span class="k">in</span> <span class="nx">config</span>
+            <span class="k">if</span> <span class="nv">value = </span><span class="nx">@config</span><span class="p">.</span><span class="nx">get</span> <span class="nx">key</span>
+              <span class="nx">value</span><span class="p">.</span><span class="nx">key</span> <span class="o">?=</span> <span class="nx">key</span>
+              <span class="nx">promises</span><span class="p">.</span><span class="nx">push</span> <span class="nx">@instanciate</span> <span class="nx">value</span></div></div></div><div class="segment"><div class="comments"><div class="wrapper"><p>Single key</p></div></div><div class="code"><div class="wrapper">        <span class="k">else</span> <span class="k">if</span> <span class="nx">util</span><span class="p">.</span><span class="nx">isString</span> <span class="nx">config</span>
+          <span class="k">if</span> <span class="nv">value = </span><span class="nx">@config</span><span class="p">.</span><span class="nx">get</span> <span class="nx">key</span>
+            <span class="nx">value</span><span class="p">.</span><span class="nx">key</span> <span class="o">?=</span> <span class="nx">key</span>
+            <span class="nv">promises = </span><span class="p">[</span><span class="nx">@instanciate</span> <span class="nx">value</span><span class="p">]</span>
+          <span class="k">else</span>
+            <span class="nx">dfd</span><span class="p">.</span><span class="nx">reject</span> <span class="k">new</span> <span class="nb">Error</span> <span class="s">&quot;Could not initialize undefined key `</span><span class="si">#{</span> <span class="nx">config</span> <span class="si">}</span><span class="s">`&quot;</span></div></div></div><div class="segment"><div class="comments"><div class="wrapper"><p>Configuration object, will overwrite default config</p></div></div><div class="code"><div class="wrapper">        <span class="k">else</span> <span class="k">if</span> <span class="nx">util</span><span class="p">.</span><span class="nx">isObject</span> <span class="nx">config</span>
+          <span class="nv">promises = </span><span class="p">[]</span>
+          <span class="k">for</span> <span class="nx">key</span><span class="p">,</span> <span class="nx">value</span> <span class="k">of</span> <span class="nx">config</span>
+            <span class="nx">@config</span><span class="p">.</span><span class="nx">set</span> <span class="nx">key</span><span class="p">,</span> <span class="nx">value</span>
+            <span class="nx">value</span><span class="p">.</span><span class="nx">key</span> <span class="o">?=</span> <span class="nx">key</span>
+            <span class="nx">promises</span><span class="p">.</span><span class="nx">push</span> <span class="nx">@instanciate</span> <span class="nx">value</span></div></div></div><div class="segment"><div class="comments"><div class="wrapper"><p>Bad parameter</p></div></div><div class="code"><div class="wrapper">        <span class="k">else</span>
+          <span class="nx">dfd</span><span class="p">.</span><span class="nx">reject</span> <span class="k">new</span> <span class="nb">Error</span> <span class="s">&quot;Unhandled initialize argument&quot;</span></div></div></div><div class="segment"><div class="comments"><div class="wrapper"><p>Initialize all</p></div></div><div class="code"><div class="wrapper">      <span class="k">else</span>
+        <span class="nv">promises = </span><span class="p">[]</span>
+        <span class="k">for</span> <span class="nx">key</span><span class="p">,</span> <span class="nx">value</span> <span class="k">of</span> <span class="nx">config</span>
+          <span class="nx">value</span><span class="p">.</span><span class="nx">key</span> <span class="o">?=</span> <span class="nx">key</span>
+          <span class="nx">promises</span><span class="p">.</span><span class="nx">push</span> <span class="nx">@instanciate</span> <span class="nx">value</span>
+
+      <span class="k">if</span> <span class="nx">promises</span><span class="o">?</span> <span class="o">and</span> <span class="nx">promises</span><span class="p">.</span><span class="nx">length</span>
+        <span class="nx">promise</span><span class="p">.</span><span class="nx">when</span><span class="p">.</span><span class="nx">apply</span><span class="p">(</span><span class="nx">@</span><span class="p">,</span> <span class="nx">promises</span><span class="p">).</span><span class="nx">then</span> <span class="nf">(res...) -&gt;</span>
+          <span class="nx">dfd</span><span class="p">.</span><span class="nx">resolve</span> <span class="nx">res</span>
+        <span class="p">,</span> <span class="nx">dfd</span><span class="p">.</span><span class="nx">reject</span>
+      <span class="k">else</span>
+        <span class="nx">dfd</span><span class="p">.</span><span class="nx">resolve</span><span class="p">()</span>
+
+      <span class="nx">dfd</span><span class="p">.</span><span class="nx">promise</span><span class="p">()</span>
+
+    <span class="nv">instanciate: </span><span class="nf">(config) -&gt;</span>
+      <span class="nx">factory</span><span class="p">.</span><span class="nx">instanciate</span> <span class="nx">config</span>
+
+    <span class="nv">get: </span><span class="nf">(key, options = {}) -&gt;</span>
+      <span class="nv">dfd = </span><span class="nx">promise</span><span class="p">.</span><span class="nx">deferred</span><span class="p">()</span></div></div></div><div class="segment"><div class="comments"><div class="wrapper"><p>Custom configuration Object</p></div></div><div class="code"><div class="wrapper">      <span class="k">if</span> <span class="nx">util</span><span class="p">.</span><span class="nx">isObject</span> <span class="nx">key</span>
+        <span class="nx">@instanciate</span><span class="p">(</span><span class="nx">key</span><span class="p">).</span><span class="nx">pipe</span> <span class="nx">dfd</span><span class="p">.</span><span class="nx">resolve</span><span class="p">,</span> <span class="nx">dfd</span><span class="p">.</span><span class="nx">reject</span></div></div></div><div class="segment"><div class="comments"><div class="wrapper"><p>Already instanciated</p></div></div><div class="code"><div class="wrapper">      <span class="k">else</span> <span class="k">if</span> <span class="nx">@instances</span><span class="p">.</span><span class="nx">has</span> <span class="nx">key</span>
+        <span class="nx">dfd</span><span class="p">.</span><span class="nx">resolve</span> <span class="nx">@instances</span><span class="p">.</span><span class="nx">get</span> <span class="nx">key</span></div></div></div><div class="segment"><div class="comments"><div class="wrapper"><p>In config</p></div></div><div class="code"><div class="wrapper">      <span class="k">else</span> <span class="k">if</span> <span class="nx">@config</span><span class="p">.</span><span class="nx">has</span> <span class="nx">key</span>
+        <span class="nv">config = </span><span class="nx">@config</span><span class="p">.</span><span class="nx">get</span> <span class="nx">key</span>
+        <span class="k">if</span> <span class="nx">util</span><span class="p">.</span><span class="nx">isObject</span><span class="p">(</span><span class="nx">config</span><span class="p">)</span> <span class="o">and</span> <span class="nx">config</span><span class="p">.</span><span class="nx">load</span><span class="o">?</span>
+          <span class="nx">config</span><span class="p">.</span><span class="nx">key</span> <span class="o">?=</span> <span class="nx">key</span>
+          <span class="nx">@instanciate</span><span class="p">(</span><span class="nx">config</span><span class="p">).</span><span class="nx">pipe</span> <span class="nx">dfd</span><span class="p">.</span><span class="nx">resolve</span><span class="p">,</span> <span class="nx">dfd</span><span class="p">.</span><span class="nx">reject</span>
+        <span class="k">else</span>
+          <span class="nx">dfd</span><span class="p">.</span><span class="nx">resolve</span> <span class="nx">config</span></div></div></div><div class="segment"><div class="comments"><div class="wrapper"><p>Try to instanciate with options</p></div></div><div class="code"><div class="wrapper">      <span class="k">else</span>
+        <span class="nx">options</span><span class="p">.</span><span class="nx">key</span> <span class="o">?=</span> <span class="nx">key</span>
+        <span class="nx">@instanciate</span><span class="p">(</span><span class="nx">options</span><span class="p">).</span><span class="nx">pipe</span> <span class="nx">dfd</span><span class="p">.</span><span class="nx">resolve</span><span class="p">,</span> <span class="nx">dfd</span><span class="p">.</span><span class="nx">reject</span>
+
+      <span class="nx">dfd</span><span class="p">.</span><span class="nx">promise</span><span class="p">()</span>
+
+    <span class="nv">set: </span><span class="nf">(key, value) -&gt;</span>
+      <span class="k">if</span> <span class="nx">util</span><span class="p">.</span><span class="nx">isObject</span> <span class="nx">key</span>
+        <span class="nx">@_set</span> <span class="nx">k</span><span class="p">,</span> <span class="nx">v</span> <span class="k">for</span> <span class="nx">k</span><span class="p">,</span> <span class="nx">f</span> <span class="k">of</span> <span class="nx">key</span>
+      <span class="k">else</span>
+        <span class="nx">@_set</span> <span class="nx">key</span><span class="p">,</span> <span class="nx">value</span>
+      <span class="nx">@</span>
+
+    <span class="nv">_set: </span><span class="nf">(key, value) -&gt;</span>
+      <span class="k">return</span> <span class="k">unless</span> <span class="nx">value</span>
+      <span class="k">if</span> <span class="nx">value</span> <span class="k">instanceof</span> <span class="nx">mvc</span><span class="p">.</span><span class="nx">Model</span> <span class="o">or</span> <span class="nx">value</span> <span class="k">instanceof</span> <span class="nx">mvc</span><span class="p">.</span><span class="nx">Collection</span>
+        <span class="nx">@instances</span><span class="p">.</span><span class="nx">set</span> <span class="nx">key</span><span class="p">,</span> <span class="nx">value</span>
+      <span class="k">else</span>
+        <span class="nx">@config</span><span class="p">.</span><span class="nx">set</span> <span class="nx">key</span><span class="p">,</span> <span class="nx">value</span></div></div></div></div></body></html>

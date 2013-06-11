@@ -1,0 +1,15 @@
+<!DOCTYPE html><html lang="en"><head><title>ext/mvc/view-renderer</title></head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"><meta name="groc-relative-root" content="../../"><meta name="groc-document-path" content="ext/mvc/view-renderer"><meta name="groc-project-path" content="src/ext/mvc/view-renderer.coffee"><meta name="groc-github-url" content="https://github.com/PaulLeCam/slob-client"><link rel="stylesheet" type="text/css" media="all" href="../../assets/style.css"><script type="text/javascript" src="../../assets/behavior.js"></script><body><div id="meta"><div class="file-path"><a href="https://github.com/PaulLeCam/slob-client/blob/master/src/ext/mvc/view-renderer.coffee">src/ext/mvc/view-renderer.coffee</a></div></div><div id="document"><div class="segment"><div class="comments"><div class="wrapper"><h1 id="view-renderer">view-renderer</h1>
+
+<p>Add a <code>renderer()</code> method to a View class to handle the rendering of subviews.</p></div></div><div class="code"><div class="wrapper"><span class="nx">define</span> <span class="p">[</span>
+  <span class="s">&quot;ext/template&quot;</span>
+  <span class="s">&quot;core/util&quot;</span>
+<span class="p">],</span> <span class="nf">(template, util) -&gt;</span>
+
+  <span class="nf">(Cls) -&gt;</span>
+
+    <span class="nx">util</span><span class="p">.</span><span class="nx">extend</span> <span class="nx">Cls</span><span class="o">::</span><span class="p">,</span></div></div></div><div class="segment"><div class="comments"><div class="wrapper"><p>The <code>renderer()</code> set the HTML content for the element and render eventual associated subviews</p></div></div><div class="code"><div class="wrapper">      <span class="nv">renderer: </span><span class="nf">(html) -&gt;</span>
+        <span class="nx">@$el</span>
+          <span class="p">.</span><span class="nx">attr</span><span class="p">(</span><span class="s">&quot;data-view&quot;</span><span class="p">,</span> <span class="nx">@cid</span><span class="p">)</span>
+          <span class="p">.</span><span class="nx">html</span> <span class="nx">html</span>
+        <span class="nx">template</span><span class="p">.</span><span class="nx">renderSubViews</span> <span class="nx">@$el</span>
+        <span class="nx">@</span></div></div></div></div></body></html>
