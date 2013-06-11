@@ -1,5 +1,5 @@
 (function() {
-  define(["core/command", "core/dev", "core/events", "core/http", "core/promise", "core/store", "core/util", "ext/mediator", "ext/framework"], function(command, dev, events, http, promise, Store, util, mediator, framework) {
+  define(["core/command", "core/dev", "core/events", "core/http", "core/mvc", "core/promise", "core/store", "core/util", "ext/mediator", "ext/routing"], function(command, dev, events, http, mvc, promise, Store, util, mediator, routing) {
     return util.extend({}, mediator, promise, command, {
       dev: dev
     }, {
@@ -7,14 +7,15 @@
     }, {
       http: http
     }, {
+      routing: routing
+    }, {
       Store: Store
     }, {
       util: util
     }, {
-      routing: framework.routing,
       mvc: {
-        Model: framework.mvc.Model,
-        Collection: framework.mvc.Model
+        Model: mvc.Model,
+        Collection: mvc.Collection
       }
     });
   });

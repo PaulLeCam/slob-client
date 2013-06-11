@@ -1,6 +1,6 @@
 {
   "name": "slob",
-  "version": "0.0.8",
+  "version": "0.1.0",
   "dependencies": {
     "handlebars": "1.x",
     "jquery": "1.x",

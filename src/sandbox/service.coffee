@@ -7,17 +7,17 @@ define [
   "core/dev"
   "core/events"
   "core/http"
+  "core/mvc"
   "core/promise"
   "core/store"
   "core/util"
   "ext/mediator"
-  "ext/framework"
-], (command, dev, events, http, promise, Store, util, mediator, framework) ->
+  "ext/routing"
+], (command, dev, events, http, mvc, promise, Store, util, mediator, routing) ->
 
   util.extend {}, mediator,
     promise, command,
-    {dev}, {events}, {http}, {Store}, {util}
-    routing: framework.routing,
+    {dev}, {events}, {http}, {routing}, {Store}, {util}
     mvc:
-      Model: framework.mvc.Model
-      Collection: framework.mvc.Model
+      Model: mvc.Model
+      Collection: mvc.Collection

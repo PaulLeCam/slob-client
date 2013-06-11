@@ -5,16 +5,17 @@ define [
   "core/command"
   "core/dev"
   "core/dom"
-  "core/events"
+  "core/mvc"
   "core/promise"
   "core/store"
   "core/util"
   "ext/mediator"
-  "ext/framework"
+  "ext/template"
+  "ext/widget"
   "ext/widgets"
-], (command, dev, dom, events, promise, Store, util, mediator, framework, widgets) ->
+], (command, dev, dom, mvc, promise, Store, util, mediator, template, Widget, widgets) ->
 
-  util.extend {}, mediator, framework, widgets,
+  util.extend {}, mediator, widgets,
     promise,
-    {dev}, {dom}, {events}, {Store}, {util},
+    {dev}, {dom}, {mvc}, {Store}, {template}, {util}, {Widget}
     request: command.request
